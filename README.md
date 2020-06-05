@@ -1,4 +1,6 @@
 # readthedocs
+Configurazione e installazione locale
+Versione draft e in aggiornamento
 
 1. [File change list](#file-change-list)
 2. [Prerequisiti](#prerequisiti)
