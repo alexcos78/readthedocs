@@ -3,6 +3,8 @@ Configurazione e installazione locale
 
 Versione draft e in aggiornamento
 
+Versione di riferimento RDT - 8f9cb194c872419caf4cbe02403270c9901b22ed
+
 ## Table of Content
 1. [File change list](#file-change-list)
 2. [Prerequisiti](#prerequisiti)
