@@ -6,12 +6,12 @@
     * [Install docker and docker compose](#install-docker-and-docker-compose)
     * [Deploy proxy](#deploy-proxy)
 3. [Install and configure RTD](#install-and-configure-rtd)
-- [RTD file modification](#rtd-file-modification)
-- [LDAP support](#ldap-support)
-- [Hide external integration support](#hide-external-integration-support)
-- [Hide sign up](#hide-sign-up)
-- [Modify header](#modify-header)
-[Configure systemd and start the service](#configure-systemd-and-start-the-service)
+   - [RTD file modification](#rtd-file-modification)
+   - [LDAP support](#ldap-support)
+   - [Hide external integration support](#hide-external-integration-support)
+   - [Hide sign up](#hide-sign-up)
+   - [Modify header](#modify-header)
+4. [Configure systemd and start the service](#configure-systemd-and-start-the-service)
 
 ## File change list
 ```
