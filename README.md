@@ -1,10 +1,10 @@
 # readthedocs
 
-[File change list](#file-change-list)
-[Prerequisiti](#prerequisiti)
-- [Certificati e posizione](#certificati-e-posizione)
-- [Install docker and docker compose](#install-docker-and-docker-compose)
-- [Deploy proxy](#deploy-proxy)
+- [File change list](#file-change-list)
+- [Prerequisiti](#prerequisiti)
+-- [Certificati e posizione](#certificati-e-posizione)
+-- [Install docker and docker compose](#install-docker-and-docker-compose)
+-- [Deploy proxy](#deploy-proxy)
 [Install and configure RTD](#install-and-configure-rtd)
 - [RTD file modification](#rtd-file-modification)
 - [LDAP support](#ldap-support)
