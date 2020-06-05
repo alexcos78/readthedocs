@@ -1,6 +1,6 @@
 # readthedocs
 
-## File change
+## File change list
 ```
 root@guides-infncloud-tb:~/readthedocs.org# find . -name *_ori
 ./readthedocs.org/readthedocs/settings/base.py
@@ -158,43 +158,9 @@ python manage.py collectstatic
 python manage.py loaddata test_data
 ```
 
-### Configure systemd
 
-```
-# cat /etc/systemd/system/readthedocs.service
-[Unit]
-Description=RTD Daemon
-[Service]
-Type=simple
-ExecStart=/root/readthedocs.org/RTD.sh
-#Restart=on-failure
-# Time to wait before forcefully stopped.
-TimeoutStopSec=300
-[Install]
-WantedBy=multi-user.target
-```
-```
-# cat /root/readthedocs.org/RTD.sh
-#!/bin/bash
-cd /root/readthedocs.org
-export HOME=/root
-PROFILE=$HOME/readthedocs.org/venv/bin/activate
-source $PROFILE
-python manage.py runserver 0.0.0.0:8000
-```
-```
-chmod +x /root/readthedocs.org/RTD.sh
-```
-```
-systemctl start readthedocs.service
-systemctl status readthedocs.service
-systemctl enable readthedocs.service
-```
-
-
-
-
-### RTD-configuration
+### RTD-configuration and file modification
+Refer to the RTD file changes list above
 
 ```
 cat readthedocs/doc_builder/python_environments.py
@@ -291,6 +257,7 @@ cat readthedocs/settings/base.py
 
 
 ### LDAP support
+Refer to the RTD file changes list above
 
 ```
 # apt-get install libsasl2-dev libldap2-dev libssl-dev 
@@ -422,3 +389,38 @@ root@guides:~/readthedocs.org# cat  readthedocs/templates/core/home-header.html_
     </div>
     <!-- END header-->
 ```
+
+
+## Configure systemd and start the service
+
+```
+# cat /etc/systemd/system/readthedocs.service
+[Unit]
+Description=RTD Daemon
+[Service]
+Type=simple
+ExecStart=/root/readthedocs.org/RTD.sh
+#Restart=on-failure
+# Time to wait before forcefully stopped.
+TimeoutStopSec=300
+[Install]
+WantedBy=multi-user.target
+```
+```
+# cat /root/readthedocs.org/RTD.sh
+#!/bin/bash
+cd /root/readthedocs.org
+export HOME=/root
+PROFILE=$HOME/readthedocs.org/venv/bin/activate
+source $PROFILE
+python manage.py runserver 0.0.0.0:8000
+```
+```
+chmod +x /root/readthedocs.org/RTD.sh
+```
+```
+systemctl start readthedocs.service
+systemctl status readthedocs.service
+systemctl enable readthedocs.service
+```
+
