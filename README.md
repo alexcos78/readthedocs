@@ -1,7 +1,9 @@
 # readthedocs
 Configurazione e installazione locale
+
 Versione draft e in aggiornamento
 
+# Table of Content
 1. [File change list](#file-change-list)
 2. [Prerequisiti](#prerequisiti)
     - [Certificati e posizione](#certificati-e-posizione)
