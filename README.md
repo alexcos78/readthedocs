@@ -1,7 +1,7 @@
 # readthedocs
 
-- [File change list](#file-change-list)
-- [Installazione e configurazione RTD](#installazione-e-configurazione-rtd)
+1. [File change list](#file-change-list)
+2. [Installazione e configurazione RTD](#installazione-e-configurazione-rtd)
 
 ## File change list
 ```
