@@ -1,7 +1,17 @@
 # readthedocs
 
-1. [File change list](#file-change-list)
-2. [Installazione e configurazione RTD](#installazione-e-configurazione-rtd)
+[File change list](#file-change-list)
+[Prerequisiti](#prerequisiti)
+- [Certificati e posizione](#certificati-e-posizione)
+- [Install docker and docker compose](#install-docker-and-docker-compose)
+- [Deploy proxy](#deploy-proxy)
+[Install and configure RTD](#install-and-configure-rtd)
+- [RTD file modification](#rtd-file-modification)
+- [LDAP support](#ldap-support)
+- [Hide external integration support](#hide-external-integration-support)
+- [Hide sign up](#hide-sign-up)
+- [Modify header](#modify-header)
+[Configure systemd and start the service](#configure-systemd-and-start-the-service)
 
 ## File change list
 ```
@@ -22,7 +32,7 @@
 ```
 
 
-## Installazione e configurazione RTD
+## Prerequisiti
 Environment Ubuntu 18.04
 
 ### Certificati e posizione
@@ -33,8 +43,9 @@ chmod 440 guides-tb.cloud.cnaf.infn.it.key
 chmod 600 guides-tb.cloud.cnaf.infn.it.key
 ```
 
-### Prerequisites – install docker
+### Install docker and Docker-compose
 
+#### Install docker
 https://docs.docker.com/engine/install/ubuntu/
 ```
 apt-get update
@@ -54,7 +65,7 @@ Status: Downloaded newer image for hello-world:latest
 Hello from Docker!
 ```
 
-### Prerequisites – install docker-compose
+#### Install docker-compose
 https://docs.docker.com/compose/install/
 ```
 curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -127,7 +138,7 @@ dee0c8d0cb9f        nginx:alpine        "nginx -g 'daemon of…"   5 seconds ago
 ```
 
 
-### Install and configure RTD
+## Install and configure RTD
 
 https://docs.readthedocs.io/en/stable/development/install.html
 ```
@@ -160,7 +171,7 @@ python manage.py loaddata test_data
 ```
 
 
-### RTD-configuration and file modification
+### RTD file modification
 Refer to the RTD file changes list above
 
 ```
@@ -307,7 +318,7 @@ from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 
 
-### External integration support
+### Hide external integration support
 ```
 (venv) root@guides:~/readthedocs.org/readthedocs/templates/socialaccount/snippets# cat provider_list.html
 {% load socialaccount %}
