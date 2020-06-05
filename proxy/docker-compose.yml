@@ -1,0 +1,12 @@
+---
+version: "3"
+services:
+  proxy:
+    image: nginx:alpine
+    container_name: proxy
+    volumes:
+      - /root/proxy/etc:/etc/nginx/:ro
+      - /root/proxy/cert:/opt/cert:ro
+    ports:
+      - 443:443
+    restart: unless-stopped
