@@ -1,14 +1,10 @@
 # readthedocs
 
-# ToC
-[File change list](#file-change-list) 
-[Installazione e configurazione RTD](#Installazione)
+- [File change list](#file-change-list)
+- [Installazione e configurazione RTD](#installazione-e-configurazione-rtd)
 
-
-<a name="file-change-list"/>
 ## File change list
 ```
-root@guides-infncloud-tb:~/readthedocs.org# find . -name *_ori
 ./readthedocs.org/readthedocs/settings/base.py
 ./readthedocs.org/readthedocs/settings/dev.py
 ./readthedocs/redirects/utils.py
@@ -26,7 +22,6 @@ root@guides-infncloud-tb:~/readthedocs.org# find . -name *_ori
 ```
 
 
-<a name="Installazione"/>
 ## Installazione e configurazione RTD
 Environment Ubuntu 18.04
 
