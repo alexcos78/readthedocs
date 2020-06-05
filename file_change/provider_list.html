@@ -1,0 +1,18 @@
+{% load socialaccount %}
+{% load i18n %}
+
+{% get_providers as socialaccount_providers %}
+{% for provider in socialaccount_providers %}
+  {% if provider.id == 'github' %}
+    <li>
+      <a title="{{ provider.name }}"
+         class="socialaccount-provider {{ provider.id }} button"
+         href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params next=next %}"
+         >
+         {% blocktrans trimmed with provider_name=provider.name verbiage=verbiage|default:'Connect to' %}
+           {{ verbiage }} {{ provider_name }}
+         {% endblocktrans %}
+      </a>
+    </li>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,15 @@
+[Unit]
+Description=RTD Daemon
+
+[Service]
+Type=simple
+
+ExecStart=/root/readthedocs.org/RTD.sh
+
+#Restart=on-failure
+
+# Time to wait before forcefully stopped.
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target

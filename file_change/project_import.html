@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load socialaccount %}
+
+{% block title %}{% trans "Import a Remote Repository" %}{% endblock %}
+
+{% block extra_links %}
+  <link rel="stylesheet" type="text/css" href="{% static "projects/css/import.css" %}" />
+{% endblock %}
+
+{% block extra_scripts %}
+  <script type="text/javascript" src="{% static "vendor/knockout.js" %}"></script>
+  <script type="text/javascript" src="{% static "projects/js/import.js" %}"></script>
+  <script type="text/javascript">
+   var import_views = require('projects/import');
+   $(document).ready(function() {
+     var instance = {},
+         config = {
+           'csrf_token': '{{ view_csrf_token }}',
+           'urls': {
+             'api_sync_remote_repositories': '{% url 'api_sync_remote_repositories' %}',
+             'remoteorganization-list': '{% url 'remoteorganization-list' %}',
+             'remoterepository-list': '{% url 'remoterepository-list' %}',
+             'remoteaccount-list': '{% url 'remoteaccount-list' %}',
+             'projects_import': '{% url 'projects_import' %}'
+           }
+         },
+         view = import_views.ProjectImportView.init(
+           $('body').get(0),
+           instance,
+           config
+         );
+   });
+  </script>
+{% endblock %}
+
+
+{% block content %}
+
+  <ul
+      class="notifications"
+      style="display: none;"
+      data-bind="visible: error">
+    <li
+        class="notification notification-40"
+        data-bind="with: error">
+
+      <span data-bind="visible: message">
+        {% trans "There was an error with your request:" %}
+        <span data-bind="text: message"></span>
+      </span>
+
+    </li>
+  </ul>
+
+  {% block main_content %}
+  {% endblock main_content %}
+
+
+  {% block sidebar_content %}
+
+  <h1>{% trans "Import a Repository" %}</h1>
+
+    <div class="col-minor project-import-sidebar">
+
+      {% block manual-import %}
+        <div class="import-manual">
+          <p>
+            {% blocktrans trimmed %}
+              You can import your project manually if it isn't listed here or
+              connected to one of your accounts.
+            {% endblocktrans %}
+          </p>
+
+          <form action="{% url "projects_import_manual" %}" method="get" class="import-manual">
+            <input type="submit" value="{% trans "Import Manually" %}"/>
+          </form>
+        </div>
+      {% endblock %}
+
+      {% block filter-repositories %}
+        <div data-bind="visible: filters().length > 0">
+          <h3>{% trans "Filter repositories" %}</h3>
+
+          <ul data-bind="foreach: filters" class="remote-filters">
+            <li
+                class="remote-filter"
+                data-bind="css: {'remote-filter-hidden': filtered()}, click: function () { $root.set_filter_by(filter_id(), filter_type); }">
+              <img data-bind="attr: {src: avatar_url}" class="remote-filter-avatar" />
+              <span data-bind="text: display_name" class="remote-filter-name"></span>
+            </li>
+          </ul>
+        </div>
+      {% endblock %}
+
+    </div>
+  {% endblock %}
+
+{% endblock %}
